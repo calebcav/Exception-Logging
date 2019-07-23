@@ -3,21 +3,25 @@ package hbcu.stay.ready.phone;
 import hbcu.stay.ready.exceptions.InvalidPhoneNumberFormatException;
 
 
-public final class PhoneNumber {
+public final class PhoneNumber{
     private final String phoneNumberString;
 
     // default constructor is uncallable
     private PhoneNumber() throws InvalidPhoneNumberFormatException {
+
+
         this(null);
     }
 
     // non-default constructor is package-protected
     protected PhoneNumber(String phoneNumber) throws InvalidPhoneNumberFormatException {
         //validate phone number with format `(###)-###-####`
-        if (!phoneNumber.matches("\\(\\d{3}\\)-\\d{3}-\\d{4}")) {
-            throw new InvalidPhoneNumberFormatException();
-        }
-        this.phoneNumberString = phoneNumber;
+            if (!phoneNumber.matches("\\(\\d{3}\\)-\\d{3}-\\d{4}")) {
+                throw new InvalidPhoneNumberFormatException();
+            }
+        else {
+                this.phoneNumberString = phoneNumber;
+            }
     }
 
     public String getAreaCode() {
